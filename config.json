@@ -1,0 +1,6 @@
+{
+    "database" : "localhost:49161/XE",
+    "username": "system",
+    "password": "oracle",
+    "sql": "select sysdate from dual"
+}

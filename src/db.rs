@@ -1,14 +1,9 @@
 extern crate oracle;
 use oracle::Connection;
 
-pub fn exec() {
-    let username = "system";
-    let password = "oracle";
-    let database = "localhost:49161/XE";
-    let sql = "select sysdate from dual";
-
+pub fn exec(database: String, username: String, password: String, sql: String) {
     let conn = Connection::connect(username, password, database).unwrap();
-    let mut stmt = conn.prepare(sql, &[]).unwrap();
+    let mut stmt = conn.prepare(&sql, &[]).unwrap();
     let rows = stmt.query(&[]).unwrap();
 
     // print column types
